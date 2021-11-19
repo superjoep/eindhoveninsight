@@ -103,3 +103,16 @@ nav input {
 .dropdown-item:active {
   background: #f8f8f8 !important;
 }
+
+/* Body */
+.btn {
+  background-color: #2EF068;
+  border-color: #2EF068;
+  color: white;
+}
+
+.btn:hover {
+  background-color: white;
+  border-color: #2EF068;
+  color: #2EF068;
+}

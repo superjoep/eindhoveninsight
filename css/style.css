@@ -105,6 +105,11 @@ nav input {
 }
 
 /* Body */
+main {
+  margin: auto;
+  max-width: 80%;
+}
+
 .btn {
   background-color: #2EF068;
   border-color: #2EF068;
@@ -115,4 +120,10 @@ nav input {
   background-color: white;
   border-color: #2EF068;
   color: #2EF068;
+}
+
+/* Footer */
+footer {
+  margin: auto;
+  max-width: 80%;
 }

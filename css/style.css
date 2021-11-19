@@ -1,11 +1,26 @@
+/* GENERAL */
 body {
   font-family: "Montserrat" !important;
   background-color: #fafafa;
+  max-width: 80%;
+  margin: auto;
 }
 
+.btn {
+  background-color: #2ef068;
+  border-color: #2ef068;
+  color: white;
+}
+
+.btn:hover {
+  background-color: white;
+  border-color: #2ef068;
+  color: #2ef068;
+}
+
+/* NAVBAR */
 nav {
   margin: auto;
-  max-width: 80%;
   box-shadow: 1px 1px 1px #f1f1f1;
 }
 
@@ -14,12 +29,9 @@ nav {
   padding-bottom: 12px;
 }
 
-nav input {
-  width: 100% !important;
-}
-
 .searchbar {
-  width: 500px !important;
+  margin: auto;
+  width: 60% !important;
 }
 
 .nav-item {
@@ -93,37 +105,22 @@ nav input {
 .dropdown-menu a {
   color: #1c1c1c !important;
 }
+.dropdown-item:active {
+  background: #f8f8f8 !important;
+}
+
+input[type="text"]:focus,
+button:focus {
+  border-color: #1dd88c !important;
+  box-shadow: 0 0 0 0.2rem rgba(29, 216, 140, 0.25) !important;
+}
+
+.flag-icon {
+  border-radius: 3px;
+}
 
 @media only screen and (max-width: 1218px) {
   .searchbar {
     width: 100% !important;
   }
-}
-
-.dropdown-item:active {
-  background: #f8f8f8 !important;
-}
-
-/* Body */
-main {
-  margin: auto;
-  max-width: 80%;
-}
-
-.btn {
-  background-color: #2EF068;
-  border-color: #2EF068;
-  color: white;
-}
-
-.btn:hover {
-  background-color: white;
-  border-color: #2EF068;
-  color: #2EF068;
-}
-
-/* Footer */
-footer {
-  margin: auto;
-  max-width: 80%;
 }

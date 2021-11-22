@@ -124,3 +124,26 @@ button:focus {
     width: 100% !important;
   }
 }
+
+/* Search */
+.heroImg {
+  padding: 200px;
+  margin: 40px 0;
+  background-image: linear-gradient(rgba(25, 88, 44, 0.5), rgba(68, 145, 126, 0.5)), url(/img/irisbuurt.png);
+}
+
+.searchbox {
+  position: relative;
+  
+}
+
+.searchbar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.intro {
+  position: absolute;
+}

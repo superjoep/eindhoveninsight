@@ -1,6 +1,7 @@
 /* GENERAL */
 body {
   font-family: "Montserrat" !important;
+  font-weight: 400 !important;
   background-color: #fafafa;
   max-width: 80%;
   margin: auto;
@@ -105,6 +106,7 @@ nav {
 .dropdown-menu a {
   color: #1c1c1c !important;
 }
+
 .dropdown-item:active {
   background: #f8f8f8 !important;
 }
@@ -119,9 +121,43 @@ button:focus {
   border-radius: 3px;
 }
 
+/* BODY */
+.card {
+  min-width: 200px;
+}
+
+.card-text {
+  font-weight: 300 !important;
+  font-size: 15px;
+}
+
+/* FOOTER */
+footer {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+footer h5 {
+  font-weight: 400;
+  padding-bottom: 30px;
+}
+
+footer .col-3 {
+  width: 400px;
+}
+
+#copyright-notice {
+  color: #d8d8d8 !important;
+}
+
+/* MOBILE */
 @media only screen and (max-width: 1218px) {
   .searchbar {
     width: 100% !important;
+  }
+
+  footer .col-3 {
+    padding-bottom: 30px;
   }
 }
 

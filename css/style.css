@@ -197,6 +197,13 @@ footer .col-3 {
 }
 
 /* MOBILE */
+@media only screen and (max-width: 600px) {
+  .searchbar button {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
 @media only screen and (max-width: 900px) {
   .card {
     width: 100% !important;

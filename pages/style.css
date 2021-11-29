@@ -1,0 +1,90 @@
+body {
+    background-color: #FAFAFA;
+}
+
+/* CONTAINER AND DIVS */
+.container {
+    max-width: 1504px;
+}
+
+.neighborhood {
+    font-family: montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 3rem;
+    margin-top: 5%;
+    margin-bottom: 3%;
+}
+
+.overview {
+    background-color: white;
+    height: 400px;
+    margin-bottom: 24px;
+    position: relative;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
+}
+
+.crime {
+    background-color: white;
+    height: 540px;
+    margin-bottom: 24px;
+    position: relative;
+    margin-right: 24px;
+    max-width: 740px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
+}
+
+.age {
+    background-color: white;
+    height: 540px;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 740px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);   
+}
+
+.map {
+    background-color: white;
+    height: 500px;
+    margin-bottom: 5%;
+    position: relative;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* SOURCE LINK ATTRIBUTES */
+.source { 
+    position: absolute;
+    bottom: 10px;
+    font-family: montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #1ED922;
+    text-decoration: none;
+}
+
+/* MEDIA QUERY FOR SCREENS <760PX */
+@media screen and (max-width: 760px) {
+    .neighborhood {
+        font-size: 1.5rem;
+    }
+    .overview {
+        height: 95px;
+    }
+
+    .crime {
+        height: 255px;
+    }
+
+    .age {
+        height: 255px;
+    }
+
+    .map {
+        height: 300px;
+    }
+
+    .source {
+        font-size: 0.7rem;
+    }
+}

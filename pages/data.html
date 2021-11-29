@@ -1,0 +1,159 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+      <link href="style.css" rel="stylesheet">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css"/>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"/>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../css/style.css"/>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+         crossorigin=""/>
+      <title>Document</title>
+   <body>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom">
+         <div class="container-fluid">
+            <a class="navbar-brand" id="logo" href="#">Eindhoven Insights</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               </ul>
+               <div class="mr-auto header-searchbar">
+                  <div class="input-group">
+                     <input id="search" type="text" class="form-control" placeholder="City, neighborhood, address" aria-label="City, neighborhood, address"/>
+                     <div class="input-group-append">
+                        <button class="btn" type="button" id="search-button">
+                        <span><img src="../img/search.svg" alt="" height="20"></span>
+                        </button>
+                     </div>
+                  </div>
+               </div>
+               <a class="nav-item nav-link active" href="#">Home</a>
+               <a class="nav-item nav-link" href="#">About</a>
+               <div class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="flag-icon flag-icon-gb">
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     <li><a class="dropdown-item" href="#"><span class="flag-icon flag-icon-nl"></span> Dutch</a></li>
+                     <li><a class="dropdown-item" href="#"><span class="flag-icon flag-icon-gb"></span> English</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </nav>
+      <p id="NeighborhoodName" class="text-center neighborhood">Irisbuurt</p>
+      <div class="container">
+      <div class="row" data-aos="fade-down">
+         <div class="col-lg-12 overview">
+            <a href="" class="source">Source</a>
+            <div class="entireAmenities">
+               <div class="amenities">
+                  <p class="pAmenities">Safety</p>
+                  <img src="../img/police.png" class="iconAmenities"> 
+                  <p class="numberAmenities" id="safetyRating"></p>
+                  <p class="numberTotal">/10</p>
+               </div>
+               <div class="amenities">
+                  <p class="pAmenities">Median age</p>
+                  <img src="../img/bday2.png" class="iconAmenities">    
+                  <p class="numberAmenities" id="medianAge"></p>
+                  <p class="numberTotal">y/o</p>
+               </div>
+               <div class="amenities">
+                  <p class="pAmenities">Supermarkets</p>
+                  <img src="../img/supermarket.png" class="iconAmenities">   
+                  <p class="numberAmenities" id="supermarkets">1</p>
+               </div>
+               <div class="amenities">
+                  <p class="pAmenities">Bus stops</p>
+                  <img src="../img/Busstop.png" class="iconAmenities">  
+                  <p class="numberAmenities" id="busstops">4</p>
+               </div>
+            </div>
+         </div>
+         <div class="row" data-aos="fade-down">
+            <div class="col crime">
+               <a href="" class="source">Source</a>
+               <!-- Place crime graph here -->
+            </div>
+            <div class="col age">
+               <a href="" class="source">Source</a> 
+               <div id="age-demographic">
+                  <p style="text-align: center">Age Demographic</p>
+                  <section
+                    style="margin: auto"
+                    class="bar-graph bar-graph-horizontal bar-graph-one"
+                  >
+                    <div id="between08" class="bar-one">
+                      <span class="year">< 15 years</span>
+                      <span class="background"></span>
+                    </div>
+                    <div id="between1525" class="bar-two">
+                      <span class="year">15 - 24 years</span>
+                    </div>
+                    <div id="between2545" class="bar-three">
+                      <span class="year">25 - 44 years</span>
+                    </div>
+                    <div id="between4511" class="bar-four">
+                      <span class="year">45 - 64 years</span>
+                    </div>
+                    <div id="plus65" class="bar-five">
+                      <span class="year">> 65 years</span>
+                    </div>
+                  </section>
+                </div>
+            </div>
+         </div>
+         <div class="row" data-aos="fade-down">
+            <div class="col-lg-12 map">
+               <div id="map"></div>
+            </div>
+         </div>
+      </div>
+      <footer class="py-5">
+         <div class="row">
+         <div class="col-3">
+            <h5>Eindhoven Insight</h5>
+            <ul class="nav flex-column">
+               <li class="nav-item mb-2 text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</li>
+            </ul>
+         </div>
+         <div class="col-3">
+            <h5>References</h5>
+            <ul class="nav flex-column">
+               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Eindhoven Open Data</a></li>
+               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Statistics Netherlands</a></li>
+               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Leaflet</a></li>
+               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Chart.js</a></li>
+            </ul>
+         </div>
+         <div class="d-flex justify-content-between py-4 my-4 border-top">
+            <p id="copyright-notice" class="text-muted">&copy; 2021 Eindhoven Insights, Inc. All rights reserved.</p>
+         </div>
+      </footer>
+   </body>
+   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+   <script>AOS.init();</script>
+   <script src="../js/main.js"></script>
+</html>
+

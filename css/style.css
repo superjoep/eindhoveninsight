@@ -1,0 +1,230 @@
+/* GENERAL */
+body {
+  font-family: "Montserrat" !important;
+  font-weight: 400 !important;
+  background-color: #fafafa;
+  max-width: 80%;
+  margin: auto;
+}
+
+.btn {
+  background-color: #2ef068;
+  border-color: #2ef068;
+  color: white;
+}
+
+.btn:hover {
+  background-color: white;
+  border-color: #2ef068;
+  color: #2ef068;
+}
+
+/* NAVBAR */
+nav {
+  margin: auto;
+  box-shadow: 1px 1px 1px #f1f1f1;
+}
+
+.navbar {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.header-searchbar {
+  margin: auto;
+  width: 60% !important;
+}
+
+.nav-item {
+  margin-right: 10px;
+}
+
+.navbar-custom {
+  background-color: rgb(255, 255, 255) !important;
+  font-size: 15px;
+}
+
+.navbar-custom a,
+.navbar-custom input,
+.navbar-custom button {
+  color: #1dd88c !important;
+  font-size: 15px;
+  transition: 0.15s;
+}
+
+.navbar-custom a:hover,
+.navbar-custom input:hover,
+.navbar-custom button:hover {
+  color: #16a76d !important;
+  font-size: 15px;
+  transition: 0.15s;
+}
+
+.navbar-custom button {
+  border-color: #ffffff !important;
+  background-color: #ffff !important;
+}
+
+.btn-secondary:focus,
+.btn-secondary:hover,
+.btn-secondary.active {
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+#logo {
+  color: #1dd88c;
+  font-weight: 800;
+  font-size: 18px;
+  padding-left: 10px;
+}
+
+#search::placeholder {
+  font-size: 15px;
+  color: #c9c9c9 !important;
+}
+
+#search {
+  background-color: #f8f8f8 !important;
+  border-color: #f8f8f8 !important;
+  color: #1c1c1c !important;
+}
+
+#search:hover {
+  background-color: #f3f3f3 !important;
+}
+
+#search-button {
+  border-color: #f8f8f8 !important;
+  background-color: #f8f8f8 !important;
+}
+
+#search-button:hover {
+  background-color: #f3f3f3 !important;
+}
+
+.dropdown-menu a {
+  color: #1c1c1c !important;
+}
+
+.dropdown-item:active {
+  background: #f8f8f8 !important;
+}
+
+input[type="text"]:focus,
+button:focus {
+  border-color: #1dd88c !important;
+  box-shadow: 0 0 0 0.2rem rgba(29, 216, 140, 0.25) !important;
+}
+
+.flag-icon {
+  border-radius: 3px;
+}
+
+/* BODY */
+.card {
+  min-width: 200px;
+}
+
+.card-text {
+  font-weight: 300 !important;
+  font-size: 15px;
+}
+
+/* FOOTER */
+footer {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+footer h5 {
+  font-weight: 400;
+  padding-bottom: 30px;
+}
+
+footer .col-3 {
+  width: 400px;
+}
+
+#copyright-notice {
+  color: #d8d8d8 !important;
+}
+
+/* SEARCH */
+.heroImg {
+  width: 100%;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  margin-bottom: 40px;
+  background-image: linear-gradient(
+      rgba(29, 216, 140, 0.9),
+      rgba(29, 216, 140, 0.9)
+    ),
+    url(../img/eindhoven.png);
+}
+
+.searchbox {
+  position: relative;
+}
+
+.searchbar {
+  color: white;
+  margin: auto;
+  width: 60%;
+}
+
+.searchbar h5 {
+  font-size: 30px;
+  padding-bottom: 15px;
+}
+
+.searchbar input {
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+.searchbar input::placeholder {
+  color: #c9c9c9;
+}
+
+.searchbar button {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.intro {
+  position: absolute;
+}
+
+/* MOBILE */
+@media only screen and (max-width: 600px) {
+  .searchbar button {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .card {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 1218px) {
+  .searchbar {
+    width: 90%;
+  }
+
+  .header-searchbar {
+    width: 100% !important;
+  }
+
+  footer .col-3 {
+    padding-bottom: 30px;
+  }
+
+  .card {
+    width: 80%;
+    margin: auto;
+  }
+}

@@ -88,3 +88,6 @@ body {
         font-size: 0.7rem;
     }
 }
+#map { height: 95%; 
+margin-top: 1%;
+}

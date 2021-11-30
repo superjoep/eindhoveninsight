@@ -204,7 +204,7 @@ footer .col-3 {
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 900px) {
   .card {
     width: 100% !important;
   }

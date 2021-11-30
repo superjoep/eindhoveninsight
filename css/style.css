@@ -11,6 +11,7 @@ body {
   background-color: #2ef068;
   border-color: #2ef068;
   color: white;
+  width: 100%;
 }
 
 .btn:hover {
@@ -179,6 +180,12 @@ footer .col-3 {
 }
 
 .searchbar input {
+  padding-top: 13px;
+  padding-bottom: 13px;
+  width: 100%;
+}
+
+.searchbar button {
   padding-top: 13px;
   padding-bottom: 13px;
 }

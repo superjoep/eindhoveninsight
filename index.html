@@ -12,26 +12,15 @@
       <title>Eindhoven Insights</title>
    </head>
    <body>
-
       <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom">
          <div class="container-fluid">
-            <a class="navbar-brand" id="logo" href="#">Eindhoven Insights</a>
+            <a class="navbar-brand" id="logo" href="/">Eindhoven Insights</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                </ul>
-               <div class="mr-auto header-searchbar">
-                  <div class="input-group">
-                     <input id="search" type="text" class="form-control" placeholder="City, neighborhood, address" aria-label="City, neighborhood, address"/>
-                     <div class="input-group-append">
-                        <button class="btn" type="button" id="search-button">
-                        <span><img src="img/search.svg" alt="" height="20"></span>
-                        </button>
-                     </div>
-                  </div>
-               </div>
                <a class="nav-item nav-link active" href="#">Home</a>
                <a class="nav-item nav-link" href="#">About</a>
                <div class="nav-item dropdown">
@@ -46,22 +35,23 @@
             </div>
          </div>
       </nav>
-
       <main>
          <div class="heroImg">
-            
             <div class="searchbox">
                <div class="searchbar">
                   <h5 class="text-center">Get to know more about your neighborhood</h5>
-                  <div class="input-group mb-3 ">
-                     <input type="text" class="form-control" placeholder="City, neighborhood, address" aria-label="City, neighborhood, address" aria-describedby="button-addon2"/>
-                     <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
-                  </div>
-               </div>   
+                  <form action="./pages/data.html" method="GET">
+                     <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="City, neighborhood, address" aria-label="City, neighborhood, address" name="neighborhood">
+                        <div class="input-group-append">
+                           <button class="btn btn-outline-secondary" type="submit">Search</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
             </div>
-            
          </div>
-
+         </div>
          <h5 style="padding-bottom: 10px">Most popular</h5>
          <div class="row row-cols-1 row-cols-lg-4 g-4">
             <div class="col">
@@ -71,7 +61,7 @@
                      <h5 class="card-title">Irisbuurt</h5>
                      <p class="card-text">Oud-Stratum</p>
                      <div class="d-grid gap-2">
-                        <button class="btn " type="button">View</button>
+                        <a href="./pages/data.html?neighborhood=Irisbuurt"><button class="btn" type="button">View</button></a>
                      </div>
                   </div>
                </div>
@@ -83,7 +73,7 @@
                      <h5 class="card-title">Rochusbuurt</h5>
                      <p class="card-text">Oud-Stratum</p>
                      <div class="d-grid gap-2">
-                        <button class="btn" type="button">View</button>
+                        <a href="./pages/data.html?neighborhood=Rochusbuurt"><button class="btn" type="button">View</button></a>
                      </div>
                   </div>
                </div>
@@ -95,7 +85,7 @@
                      <h5 class="card-title">Burghplan</h5>
                      <p class="card-text">Putten</p>
                      <div class="d-grid gap-2">
-                        <button class="btn" type="button">View</button>
+                        <a href="./pages/data.html?neighborhood=Burghplan"><button class="btn" type="button">View</button></a>
                      </div>
                   </div>
                </div>
@@ -107,14 +97,13 @@
                      <h5 class="card-title">Gerardusplein</h5>
                      <p class="card-text">Kortonjo</p>
                      <div class="d-grid gap-2">
-                        <button class="btn" type="button">View</button>
+                        <a href="./pages/data.html?neighborhood=Gerardusplein"><button class="btn" type="button">View</button></a>
                      </div>
                   </div>
                </div>
             </div>
          </div>
       </main>
-
       <footer class="py-5">
          <div class="row">
          <div class="col-3">
@@ -136,7 +125,6 @@
             <p id="copyright-notice" class="text-muted">&copy; 2021 Eindhoven Insights, Inc. All rights reserved.</p>
          </div>
       </footer>
-
       <script
          src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
       <script
@@ -145,3 +133,4 @@
          src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
    </body>
 </html>
+

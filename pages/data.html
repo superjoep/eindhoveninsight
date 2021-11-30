@@ -22,7 +22,7 @@
    <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom">
          <div class="container-fluid">
-            <a class="navbar-brand" id="logo" href="#">Eindhoven Insights</a>
+            <a class="navbar-brand" id="logo" href="../index.html">Eindhoven Insights</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -30,14 +30,16 @@
                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                </ul>
                <div class="mr-auto header-searchbar">
+                  <form action="" method="GET">
                   <div class="input-group">
-                     <input id="search" type="text" class="form-control" placeholder="City, neighborhood, address" aria-label="City, neighborhood, address"/>
+                     <input id="search" type="text" class="form-control" placeholder="City, neighborhood, address" name="neighborhood"/>
                      <div class="input-group-append">
-                        <button class="btn" type="button" id="search-button">
+                        <button class="btn" type="submit" id="search-button">
                         <span><img src="../img/search.svg" alt="" height="20"></span>
                         </button>
                      </div>
                   </div>
+               </form>
                </div>
                <a class="nav-item nav-link active" href="#">Home</a>
                <a class="nav-item nav-link" href="#">About</a>

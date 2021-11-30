@@ -195,3 +195,242 @@ $.get(
         );
     }
 );
+
+// Graph crime starts here
+// FETCHING DATA AND PUSH ON TABLE OF EINDHOVEN
+async function getData(){
+    const xs = [];
+    const ys = [];
+
+    const response = await fetch('../img/crimiEindhoven.csv');
+    const data = await response.text();
+
+    const table = data.split('\n');
+    table.forEach(row => {
+        const columns = row.split(';');
+        const sort = columns[0];
+        xs.push(sort);
+        const percentage = columns[1];
+        ys.push(parseFloat(percentage));
+        console.log(sort, percentage);
+    });
+    return{ xs, ys };
+}
+
+// FETCHING DATA AND PUSH ON TABLE OF IRISBUURT
+async function getData2(){
+    const xs2 = [];
+    const ys2 = [];
+
+    const response = await fetch('../img/crimiIrisbuurt.csv');
+    const data = await response.text();
+
+    const table = data.split('\n');
+    table.forEach(row => {
+        const columns = row.split(';');
+        const sort = columns[0];
+        xs2.push(sort);
+        const percentage = columns[1];
+        ys2.push(parseFloat(percentage));
+        console.log(sort, percentage);
+    });
+    return{ xs2, ys2 };
+}
+
+// CREATING CHART AND DISPLAY DATA
+chartIt();
+
+async function chartIt() {
+    const data = await getData();
+    const data2 = await getData2();
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    Chart.defaults.font.family = "'Montserrat', sans-serif"
+
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: data.xs,
+            datasets: 
+            [{
+                label: 'Eindhoven',
+                labels: data.xs,
+                data: data.ys,
+                backgroundColor: 'rgba(30, 217, 34, 0.2)',
+                borderColor: 'rgba(30, 217, 34, 1)',
+                borderWidth: 1,
+                fill: true,
+                animations:{
+                    y:{
+                        duration: 3000,
+                        delay: 500
+                    }
+                }
+            },
+            {
+                label: 'Irisbuurt',
+                data: data2.ys2,
+                backgroundColor: 'rgba(0, 255, 139, 0.5)',
+                borderColor: 'rgba(0, 255, 139, 1)',
+                borderWidth: 1,
+                fill: true,
+                animations:{
+                    y:{
+                        duration: 3000
+                    }
+                }
+            }],
+        },
+        options:{
+            responsive: true,
+            plugins: {
+                 legend: {
+                     position: 'right'
+                    },
+                 title: {
+                    display: true,
+                    text: 'Registrated crime in Eindhoven and Irisbuurt in 2020 per 1,000 inhabitants'
+                },
+                tooltip:{
+                    enabled: false,
+                    position: 'nearest',
+                    external: externalTooltipHandler
+                }, 
+             },
+             interaction:{
+                 intersect: false,
+                 mode: 'index'
+             },
+             scales:{
+                y:{
+                    min: 0,
+                    max: 20,
+                    ticks:{
+                        stepSize: 5
+                    }
+                }
+            },
+            animation:{
+                y:{
+                    easing: 'easeOutElastic',
+                    from: (ctx) =>{
+                        if(ctx.type === 'data'){
+                            if(ctx.mode === 'default' && !ctx.dropped){
+                                ctx.dropped = true;
+                                return 0;
+                            }
+                        }
+                    }
+                }
+            }   
+         }
+    });
+}
+
+// TOOLTIP PART OF CRIME RATES CHARTS STARTS HERE
+const getOrCreateTooltip = (chart) => {
+    let tooltipEl = chart.canvas.parentNode.querySelector('div');
+  
+    if (!tooltipEl) {
+      tooltipEl = document.createElement('div');
+      tooltipEl.style.background = 'rgba(255, 255, 255, 0.6)';
+      tooltipEl.style.borderWidth = 10;
+      tooltipEl.style.borderColor =  'rgb(100, 50, 100)';
+      tooltipEl.style.borderRadius = '3px';
+      tooltipEl.style.color = 'black';
+      tooltipEl.style.opacity = 1;
+      tooltipEl.style.pointerEvents = 'none';
+      tooltipEl.style.position = 'absolute';
+      tooltipEl.style.transform = 'translate(-50%, 0)';
+      tooltipEl.style.transition = 'all .5s ease';
+  
+      const table = document.createElement('table');
+      table.style.margin = '0px';
+  
+      tooltipEl.appendChild(table);
+      chart.canvas.parentNode.appendChild(tooltipEl);
+    }
+  
+    return tooltipEl;
+  };
+  
+  const externalTooltipHandler = (context) => {
+    // Tooltip Element
+    const {chart, tooltip} = context;
+    const tooltipEl = getOrCreateTooltip(chart);
+  
+    // Hide if no tooltip
+    if (tooltip.opacity === 0) {
+      tooltipEl.style.opacity = 0;
+      return;
+    }
+  
+    // Set Text
+    if (tooltip.body) {
+      const titleLines = tooltip.title || [];
+      const bodyLines = tooltip.body.map(b => b.lines);
+  
+      const tableHead = document.createElement('thead');
+  
+      titleLines.forEach(title => {
+        const tr = document.createElement('tr');
+        tr.style.borderWidth = 0;
+  
+        const th = document.createElement('th');
+        th.style.borderWidth = 0;
+        const text = document.createTextNode(title);
+  
+        th.appendChild(text);
+        tr.appendChild(th);
+        tableHead.appendChild(tr);
+      });
+  
+      const tableBody = document.createElement('tbody');
+      bodyLines.forEach((body, i) => {
+        const colors = tooltip.labelColors[i];
+  
+        const span = document.createElement('span');
+        span.style.background = colors.backgroundColor;
+        span.style.borderColor = colors.borderColor;
+        span.style.borderWidth = '2px';
+        span.style.marginRight = '10px';
+        span.style.height = '10px';
+        span.style.width = '10px';
+        span.style.display = 'inline-block';
+  
+        const tr = document.createElement('tr');
+        tr.style.backgroundColor = 'inherit';
+        tr.style.borderWidth = 0;
+  
+        const td = document.createElement('td');
+        td.style.borderWidth = 0;
+  
+        const text = document.createTextNode(body);
+  
+        td.appendChild(span);
+        td.appendChild(text);
+        tr.appendChild(td);
+        tableBody.appendChild(tr);
+      });
+  
+      const tableRoot = tooltipEl.querySelector('table');
+  
+      // Remove old children
+      while (tableRoot.firstChild) {
+        tableRoot.firstChild.remove();
+      }
+  
+      // Add new children
+      tableRoot.appendChild(tableHead);
+      tableRoot.appendChild(tableBody);
+    }
+  
+    const {Left: positionX, Top: positionY} = chart.canvas;
+  
+    // Display, position, and set styles for font
+    tooltipEl.style.opacity = 1;
+    tooltipEl.style.left = positionX + tooltip.caretX + 'px';
+    tooltipEl.style.top = positionY + tooltip.caretY + 'px';
+    tooltipEl.style.font = tooltip.options.bodyFont.string;
+    tooltipEl.style.padding = tooltip.options.padding + 'px ' + tooltip.options.padding + 'px';
+  };

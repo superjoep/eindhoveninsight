@@ -137,6 +137,14 @@ footer {
   font-weight: 300;
 }
 
+canvas{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+}
+
 footer h5 {
   font-weight: 400;
   padding-bottom: 30px;
